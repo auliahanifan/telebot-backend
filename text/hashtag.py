@@ -1,0 +1,4 @@
+hashtag = """
+#DiRumahAja
+#JagaJarak
+#MaskerUntukSemua"""
