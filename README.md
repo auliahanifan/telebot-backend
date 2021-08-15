@@ -1,4 +1,5 @@
 # Telecovbot
+Telegram Covid-19 Bot
 
 `pip -m venv botenv`
 
