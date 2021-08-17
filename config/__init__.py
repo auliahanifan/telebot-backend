@@ -20,3 +20,4 @@ DB_PASSWORD = os.environ.get('DB_PASSWORD', 'app_user')
 IS_PRODUCTION = os.environ.get('IS_PRODUCTION', 'False').lower() == 'true'
 WEBHOOK_URL = os.environ.get('WEBHOOK_URL', 'http://localhost')
 WEBHOOK_PORT = int(os.environ.get('WEBHOOK_PORT', '8443'))
+WEBHOOK_LISTEN = os.environ.get('WEBHOOK_LISTEN', '0.0.0.0')

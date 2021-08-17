@@ -2,7 +2,7 @@ import logging
 import time
 import telebot
 from controller import bot, gateway
-from config import IS_PRODUCTION, WEBHOOK_URL, WEBHOOK_PORT, BOT_TOKEN
+from config import IS_PRODUCTION, WEBHOOK_URL, WEBHOOK_PORT, BOT_TOKEN, WEBHOOK_LISTEN
 from flask import Flask, request
 
 logger = telebot.logger
@@ -23,10 +23,10 @@ def webhook():
 
 if __name__ == '__main__':
     if IS_PRODUCTION:
-        bot.remove_webhook()
-        time.sleep(0.1)
-        bot.set_webhook(f'{WEBHOOK_URL}/{BOT_TOKEN}')
-        app.run(host='0.0.0.0', port=WEBHOOK_PORT)
+        # bot.remove_webhook()
+        # time.sleep(0.1)
+        # bot.set_webhook(f'{WEBHOOK_URL}/{BOT_TOKEN}')
+        app.run(host=WEBHOOK_LISTEN, port=WEBHOOK_PORT)
     else:
         print('Bot Polling Run')
         bot.polling()
