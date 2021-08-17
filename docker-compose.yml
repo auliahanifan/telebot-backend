@@ -13,15 +13,6 @@ services:
     # ports:
     #   - 8069:8069
 
-#   postgres:
-#     container_name: postgres
-#     image: postgres:12
-#     env_file: .env
-#     volumes:
-#     - ${PWD}/data/docker/postgresql/data/pgdata:/var/lib/postgresql/data/pgdata
-#     ports:
-#     - 5432:5432
-
     redis:
         container_name: redis
         image: redis:6.2.5-alpine
@@ -29,10 +20,18 @@ services:
             - 6379:6379
 
     adminer:
-        image: adminer:4.8.1-fastcgi
+        image: adminer
         restart: always
         ports:
             - 8080:8080
+
+    db:
+        image: mariadb:10.6.2
+        restart: always
+        environment:
+            MARIADB_ROOT_PASSWORD: example
+        ports:
+            - 3306:3306
             
     redis-commander:
         container_name: redis-commander
