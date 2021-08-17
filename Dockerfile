@@ -10,4 +10,5 @@ RUN pip install --upgrade pip
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENTRYPOINT ["./run.sh"]
+ENTRYPOINT [ "python" ]
+CMD [ "app.py" ]
