@@ -1,1 +1,1 @@
-from controller.gateway import *
+from controller.gateway import gateway, bot

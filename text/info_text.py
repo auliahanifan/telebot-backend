@@ -1,4 +1,4 @@
-from text.hashtag import hashtag
+from text.common_text import hashtag
 
 # info_questions = [
 # "Apa itu virus corona?",

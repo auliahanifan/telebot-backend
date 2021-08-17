@@ -29,7 +29,7 @@ services:
             - 6379:6379
 
     adminer:
-        image: adminer
+        image: adminer:4.8.1-fastcgi
         restart: always
         ports:
             - 8080:8080

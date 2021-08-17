@@ -22,7 +22,6 @@ class Screening:
     symptom_anosmia: typing.Optional[bool] = None
     contact_patient: typing.Optional[bool] = None
     contact_suspect: typing.Optional[bool] = None
-    hi_risk: typing.Optional[bool] = None
 
     def __str__(self):
         return json.dumps(dataclasses.asdict(self))

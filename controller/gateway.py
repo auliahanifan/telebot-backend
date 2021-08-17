@@ -25,11 +25,11 @@ def main_switch(message, latest_user_state):
     chat_id = message.chat.id
 
     if (latest_user_state.status == Status.MAIN_MENU):
-        switch_menu(message)
+        switch_menu(message, latest_user_state)
     elif (latest_user_state.status == Status.INFO):
         switch_info(message)
     elif (latest_user_state.status == Status.SCREENING):
-        switch_screening(message)
+        switch_screening(message, latest_user_state)
     else:
         send_menu(chat_id)
 

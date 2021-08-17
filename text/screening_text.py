@@ -1,19 +1,20 @@
-gejala = [
+from text.common_text import answer_yes_no
+
+ask_phone_number = "Berapakah nomor handphone anda?"
+
+symptoms = [
     "Apakah mengalami demam dengan suhu di atas 38 derajat Celcius?",
     "Oke, apa ada batuk?",
     "Apa ada sesak atau kesulitan untuk bernapas?",
     "Apakah mengalami gangguan ketika mencium bau atau tidak dapat mencium bau sama sekali?"
 ]
+symptoms_questions = [q+answer_yes_no for q in symptoms]
 
-suspection = [
+suspections = [
     "Baik, apa terdapat riwayat kontak (misalnya: berjabat tangan, mengobrol lama, berada dalam satu ruangan) dengan orang yang sudah dinyatakan positif terinfeksi virus Corona dalam 14 hari terakhir?",
     "Lalu, apakah ada kontak (misalnya: berjabat tangan, mengobrol lama, berada dalam satu ruangan) dengan orang yang memiliki gejala flu, yaitu demam, batuk, dan pilek, atau dengan orang yang diduga terinfeksi virus Corona dalam 14 hari terakhir?",
-    """Apakah Anda memiliki salah satu kondisi di bawah ini:
-- Berusia di atas 60 tahun
-- Memiliki riwayat penyakit jantung, penyakit paru-paru, atau penyakit kencing manis
-- Sedang menjalani pengobatan kanker
-"""
 ]
+suspections_questions = [q+answer_yes_no for q in suspections]
 
 answer_high = [
     "Baik, bila mengalami sesak napas dan memiliki riwayat kontak dengan orang yang sudah positif terinfeksi virus Corona, maka eaat ini memiliki kemungkinan yang tinggi tertular virus Corona.",

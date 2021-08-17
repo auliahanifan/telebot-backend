@@ -1,4 +1,4 @@
-from text.hashtag import hashtag
+from text.common_text import hashtag
 
 menu = """Apa saja yang ingin kamu ketahui tentang COVID-19?
 A. Situasi COVID-19 terkini di Indonesia
