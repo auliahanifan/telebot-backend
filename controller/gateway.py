@@ -1,5 +1,4 @@
-from telebot import types
-from helper import bot, redis_helper, Status
+from helper import bot, redis_helper, Status, ploads
 from controller.info import switch_info
 from controller.main_menu import switch_menu
 from controller.screening import switch_screening
@@ -9,7 +8,12 @@ import text
 @bot.message_handler()
 def gateway(message):
     chat_id = message.chat.id
-    latest_user_state = redis_helper.get(str(chat_id)).decode('utf-8')
+    latest_user_state = None
+    try:
+        latest_user_state = ploads(redis_helper.get(str(chat_id)))
+        print(latest_user_state.to_json())
+    except Exception as e:
+        print(f'Exception in Checking ploads {e}') 
 
     if latest_user_state:
         main_switch(message, latest_user_state)
@@ -20,11 +24,11 @@ def gateway(message):
 def main_switch(message, latest_user_state):
     chat_id = message.chat.id
 
-    if (latest_user_state == str(Status.MAIN_MENU)):
+    if (latest_user_state.status == Status.MAIN_MENU):
         switch_menu(message)
-    elif (latest_user_state == str(Status.INFO)):
+    elif (latest_user_state.status == Status.INFO):
         switch_info(message)
-    elif (latest_user_state == str(Status.SCREENING)):
+    elif (latest_user_state.status == Status.SCREENING):
         switch_screening(message)
     else:
         send_menu(chat_id)

@@ -1,6 +1,6 @@
 import requests
-from helper import bot, redis_helper, Status
 import text
+from helper import bot, redis_helper, Status, pdumps, ChatStatus
 
 def send_data(message):
     chat_id = message.chat.id
@@ -19,6 +19,6 @@ def send_data(message):
 
             bot.send_message(chat_id, resp_text)
 
-        redis_helper.set(str(chat_id), str(Status.OTHER))
+        redis_helper.set(str(chat_id), pdumps(ChatStatus(Status.OTHER)))
     except Exception as e:
         bot.send_message(chat_id, text.covid_data_error)
