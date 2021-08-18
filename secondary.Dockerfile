@@ -11,4 +11,4 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENTRYPOINT [ "python" ]
-CMD [ "app.py" ]
+CMD [ "app_secondary.py" ]
