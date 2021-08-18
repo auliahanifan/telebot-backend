@@ -16,7 +16,9 @@ services:
         env_file: .env
         depends_on:
         - db
-        build: .
+        build: 
+            context: .
+            dockerfile: secondary.Dockerfile
         ports:
         - 8001:8000
 
