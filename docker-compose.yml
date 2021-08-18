@@ -13,14 +13,14 @@ services:
     telecovbot-2:
         container_name: telecovbot-2
         image: local-telecovbot-secondary:latest
-        env_file: .env
+        env_file: secondary.env
         depends_on:
         - db
         build: 
             context: .
-            dockerfile: secondary.Dockerfile
+            dockerfile: ./secondary.Dockerfile
         ports:
-        - 8001:8000
+        - 8001:8001
 
     redis:
         container_name: redis
