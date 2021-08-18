@@ -12,7 +12,7 @@ services:
 
     telecovbot-2:
         container_name: telecovbot-2
-        image: local-telecovbot:latest
+        image: local-telecovbot-secondary:latest
         env_file: .env
         depends_on:
         - db
