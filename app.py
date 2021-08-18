@@ -23,9 +23,9 @@ def webhook():
 
 if __name__ == '__main__':
     if IS_PRODUCTION:
-        # bot.remove_webhook()
-        # time.sleep(0.1)
-        # bot.set_webhook(f'{WEBHOOK_URL}/{BOT_TOKEN}')
+        bot.remove_webhook()
+        time.sleep(0.8)
+        bot.set_webhook(f'{WEBHOOK_URL}/{BOT_TOKEN}')
         app.run(host=WEBHOOK_LISTEN, port=WEBHOOK_PORT)
     else:
         print('Bot Polling Run')

@@ -3,22 +3,22 @@ services:
     telecovbot-1:
         container_name: telecovbot-1
         image: local-telecovbot:latest
-        env_file: .env
+        env_file: 1.env
         depends_on:
         - db
         build: .
         ports:
         - 8000:8000
 
-    # telecovbot-2:
-    #     container_name: telecovbot-2
-    #     image: local-telecovbot:latest
-    #     env_file: .env
-    #     depends_on:
-    #     - db
-    #     build: .
-    #     ports:
-    #     - 8001:8001
+    telecovbot-2:
+        container_name: telecovbot-2
+        image: local-telecovbot:latest
+        env_file: 2.env
+        depends_on:
+        - db
+        build: .
+        ports:
+        - 8001:8001
 
     redis:
         container_name: redis
