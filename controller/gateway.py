@@ -34,7 +34,10 @@ def gateway(message):
             switch_info_covid(message_text, chat_id)
 
     else:
-        Chat.get_or_create(id=chat_id)
+        try:
+            Chat.get_or_create(id=chat_id)
+        except:
+            pass
         redis_helper.set(chat_id, status['menu'])
         bot.send_message(chat_id, text_greeting, reply_markup=markup_remove())
         send_main_menu(chat_id)
