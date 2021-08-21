@@ -13,3 +13,7 @@ DB_PORT = int(os.environ.get('DB_PORT', '3306'))
 DB_DATABASE = os.environ.get('DB_DATABASE', 'telegram_bot')
 DB_USER = os.environ.get('DB_USER', 'root')
 DB_PASSWORD = os.environ.get('DB_PASSWORD', 'workshop')
+
+
+IS_PRODUCTION = str(os.environ.get('IS_PRODUCTION', 'false')).lower() == 'true'
+WEBHOOK_URL = os.environ.get('WEBHOOK_URL', 'http://localhost')

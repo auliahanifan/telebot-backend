@@ -1,0 +1,41 @@
+version: "3"
+services:
+    telecovbot:
+        container_name: telecovbot
+        image: local-telecovbot:latest
+        env_file: .env
+        depends_on:
+        - db
+        build: .
+        ports:
+        - 8000:8000
+
+    redis:
+        container_name: redis
+        image: redis:6.2.5-alpine
+        ports:
+            - 6379:6379
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
+
+    db:
+        image: mariadb:10.6.2
+        restart: always
+        environment:
+            MARIADB_ROOT_PASSWORD: example
+        ports:
+            - 3306:3306
+            
+    redis-commander:
+        container_name: redis-commander
+        hostname: redis-commander
+        image: rediscommander/redis-commander:latest
+        restart: always
+        environment:
+        - REDIS_HOSTS=local:redis:6379
+        ports:
+        - "8081:8081"
