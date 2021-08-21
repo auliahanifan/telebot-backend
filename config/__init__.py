@@ -11,10 +11,11 @@ REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
 REDIS_PORT = int(os.environ.get('REDIS_PORT', '6379'))
 
 # Database
-DB_HOST = os.environ.get('DB_HOST', 'localhost')
-DB_PORT = os.environ.get('DB_PORT', '5432')
-DB_USER = os.environ.get('DB_USER', 'app_user')
-DB_PASSWORD = os.environ.get('DB_PASSWORD', 'app_user')
+DB_HOST = os.environ.get('DB_HOST', '103.171.85.20')
+DB_PORT = int(os.environ.get('DB_PORT', '3306'))
+DB_USER = os.environ.get('DB_USER', 'root')
+DB_PASSWORD = os.environ.get('DB_PASSWORD', 'workshop')
+DB_DATABASE = os.environ.get('DB_DATABASE', 'bot_app')
 
 # setup
 IS_PRODUCTION = os.environ.get('IS_PRODUCTION', 'False').lower() == 'true'

@@ -1,4 +1,4 @@
-from helper.status import ChatStatus
+from helper.status import Status
 from helper import bot, redis_helper, send_multiple_msg, Status, pdumps
 from controller.common import send_menu
 import text
@@ -15,11 +15,11 @@ def switch_info(message):
     
     if answer:
         send_multiple_msg(bot, message, answer)
-        redis_helper.set(str(chat_id), pdumps(ChatStatus(Status.OTHER)))
+        redis_helper.set(str(chat_id), pdumps(Status.OTHER))
     else:
         bot.send_message(chat_id, text.info_questions_menu)
         
 def send_info_menu(message):
     chat_id = message.chat.id
-    redis_helper.set(str(chat_id), pdumps(ChatStatus(Status.INFO)))
+    redis_helper.set(str(chat_id), pdumps(Status.INFO))
     bot.send_message(chat_id, text.info_questions_menu)

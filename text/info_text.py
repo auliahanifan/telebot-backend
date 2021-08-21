@@ -1,15 +1,5 @@
 from text.common_text import hashtag
 
-# info_questions = [
-# "Apa itu virus corona?",
-# "Bagaimana gejala yang timbul bila terinfeksi?",
-# "Siapa saja yang beresiko terinfeksi?",
-# "Bagaimana mencegah penularannya?",
-# "Ingin mengetahui tentang tes untuk mendeteksi virus Corona/COVID-19",
-# "Bagaimana penanganan untuk pasien yang terinfeksi virus Corona?",
-# "Seluruh informasi mengenai virus corona"
-# ]
-
 info_questions_menu = """Berikut adalah hal yang bisa anda tanyakan:
 
 A. Apa itu virus corona?

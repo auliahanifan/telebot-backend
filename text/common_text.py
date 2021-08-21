@@ -3,7 +3,4 @@ hashtag = """
 #JagaJarak
 #MaskerUntukSemua"""
 
-answer_yes_no = """
-Kirim Y untuk Ya
-Kirim T untuk Tidak
-Kirim MENU untuk kembali ke menu"""
+greeting = "Halo! Selamat datang di *Pusat Informasi Covid-19 powered by Telecovbot*. Semoga kamu sehat-sehat selalu."
