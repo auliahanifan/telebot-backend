@@ -1,27 +1,13 @@
-from text.common_text import hashtag
-
-# info_questions = [
-# "Apa itu virus corona?",
-# "Bagaimana gejala yang timbul bila terinfeksi?",
-# "Siapa saja yang beresiko terinfeksi?",
-# "Bagaimana mencegah penularannya?",
-# "Ingin mengetahui tentang tes untuk mendeteksi virus Corona/COVID-19",
-# "Bagaimana penanganan untuk pasien yang terinfeksi virus Corona?",
-# "Seluruh informasi mengenai virus corona"
-# ]
-
-info_questions_menu = """Berikut adalah hal yang bisa anda tanyakan:
-
+text_info_questions_menu = """Berikut adalah hal yang bisa anda tanyakan:
 A. Apa itu virus corona?
 B. Bagaimana gejala yang timbul bila terinfeksi?
 C. Bagaimana mencegah penularannya?
 D. Bagaimana penanganan untuk pasien yang terinfeksi virus Corona? 
 E. Seluruh informasi mengenai virus corona
-
 Ketik A, B, C, D atau E lalu kirim ke kami. Maka kami akan menjawab pertanyaan kamu.
-Atau ketik *MENU* untuk kembali ke menu awal""" + hashtag
+Atau ketik *MENU* untuk kembali ke menu awal"""
 
-what_is_corona = [
+text_what_is_corona = [
     "Sedikit penjelasan mengenai virus Corona ya.",
     """Virus Corona merupakan virus yang menyerang saluran pernapasan. Penyakit ini sekarang dikenal dengan sebutan COVID-19. Virus ini ditemukan pada akhir Desember 2019 pertama kali di China tepatnya di kota Wuhan.""",
     "Virus ini dapat menyerang siapa saja mulai dari bayi, anak-anak, usia remaja, usia dewasa, usia tua hingga ibu hamil. Virus ini mudah menyebar sehingga sampai detik ini sudah banyak negara yang mengumumkan adanya virus Corona di negaranya.",
@@ -40,7 +26,7 @@ Selain itu perlu perlu untuk selalu memantau gejala yang timbul seperti memiliki
 """
 ]
 
-how_symptomps = [
+text_how_symptomps = [
     """Jadi, ada 3 gejala yang dapat menandakan adanya infeksi dari virus Corona, yakni :
 - Demam
 - Batuk
@@ -60,7 +46,7 @@ Selain itu perlu perlu untuk selalu memantau gejala yang timbul seperti memiliki
 """
 ]
 
-corona_treatment = [
+text_corona_treatment = [
     "OK, penanganan untuk orang yang tertular virus Corona akan berbeda tergantung pada gejala yang timbul.",
     "Apabila tidak mengalami gejala apapun maka akan disarankan untuk mengisolasi diri selama 14 hari didalam rumah dan diharapkan tidak terdapat kontak dengan orang lain.",
     "Jika muncul gejala ringan seperti demam, batuk, pilek atau sakit tenggorokan, maka disarankan untuk mengisolasi diri selama 14 hari juga. Diharapkan tidak terdapat kontak dengan orang lain, serta dapat melakukan konsultasi online kepada dokter yang ada untuk menanyakan obat-obatan apa yang diperlukan.",
@@ -79,7 +65,7 @@ corona_treatment = [
 """,
 ]
 
-how_to_prevent = [
+text_how_to_prevent = [
     "Virus Corona merupakan virus yang menyerang saluran pernapasan. Gejala yang ditimbulkan bila terinfeksi virus ini dapat ringan maupun berat. Gejala ringan yang ditimbulkan umumnya seperti flu yakni adanya demam, batuk, pilek, nyeri tenggorokan. Sedangkan sedikit kasus menjadi berat seperti infeksi paru-paru atau pneumonia. Namun infeksi virus ini bisa juga tidak menunjukkan gejala apa-apa.",
     "Virus ini dapat menyebar melalui percikan dahak saat batuk ataupun bersin.",
     """Hal-hal yang perlu dilakukan agar menghindari terinfeksi virus Corona adalah :
@@ -98,7 +84,7 @@ Selain itu perlu perlu untuk selalu memantau gejala yang timbul seperti memiliki
 """,
 ]
 
-all_info_corona = [
+text_all_info_corona = [
     "Virus Corona merupakan virus yang menyerang saluran pernapasan. Virus ini ditemukan pada akhir Desember 2019 pertama kali di China tepatnya di kota Wuhan.",
     "Virus ini dapat menyerang siapa saja mulai dari bayi, anak-anak, usia remaja, usia dewasa, usia tua hingga ibu hamil.",
     "Gejala yang ditimbulkan bila terinfeksi virus ini dapat ringan maupun berat. Gejala ringan yang ditimbulkan umumnya seperti flu yakni adanya demam, batuk, pilek, nyeri tenggorokan. Sedangkan sedikit kasus menjadi berat seperti infeksi paru-paru atau pneumonia. Namun infeksi virus ini bisa juga tidak menunjukkan gejala apa-apa.",
@@ -124,10 +110,10 @@ Selain itu perlu perlu untuk selalu memantau gejala yang timbul seperti memiliki
 """,
 ]
 
-info_question_answer_mapping = {
-    'a': what_is_corona,
-    'b': how_symptomps,
-    'c': how_to_prevent,
-    'd': corona_treatment,
-    'e': all_info_corona
+text_info_question_answer_mapping = {
+    'a': text_what_is_corona,
+    'b': text_how_symptomps,
+    'c': text_how_to_prevent,
+    'd': text_corona_treatment,
+    'e': text_all_info_corona
 }

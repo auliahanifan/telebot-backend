@@ -1,1 +1,0 @@
-from controller.gateway import gateway, bot

@@ -1,9 +1,9 @@
-hashtag = """
-#DiRumahAja
-#JagaJarak
-#MaskerUntukSemua"""
+text_greeting = 'Halo selamat datang di Covid Info Bot'
 
-answer_yes_no = """
-Kirim Y untuk Ya
-Kirim T untuk Tidak
-Kirim MENU untuk kembali ke menu"""
+text_menu = """Menu:
+
+A. Ingin tahu kondisi covid terkini di Indonesia
+B. Ingin tahu mengenai Covid-19
+
+Kirim A atau B.
+"""

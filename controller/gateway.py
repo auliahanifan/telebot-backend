@@ -1,35 +1,53 @@
-from helper import bot, redis_helper, Status, ploads
-from controller.info import switch_info
-from controller.main_menu import switch_menu
-from controller.screening import switch_screening
-from controller.common import send_menu
-import text
+from telebot import types
+from helper.bot import bot
+from helper.redis_helper import redis_helper
+from helper.status import status
+from model.chat import Chat
+from text.common_text import *
+from text.data_covid import *
+from text.info_covid import *
+from controller.common import send_main_menu, send_answer_covid
+from controller.info_covid import send_current_covid_data, switch_info_covid
+from helper.markup import markup_info_menu, markup_remove
 
 @bot.message_handler()
 def gateway(message):
     chat_id = message.chat.id
-    latest_user_state = None
+    message_text = message.text.lower()
+    
+    user_status = None
     try:
-        latest_user_state = ploads(redis_helper.get(str(chat_id)))
-        print(latest_user_state.to_json())
-    except Exception as e:
-        print(f'Exception in Checking ploads {e}') 
+        user_status = redis_helper.get(chat_id).decode("utf-8") 
+    except:
+        pass
 
-    if latest_user_state:
-        main_switch(message, latest_user_state)
+    if user_status:
+        if user_status == status['menu']:
+            switch_main_menu(message_text, chat_id)
+            
+        elif user_status == status['other']:
+            redis_helper.set(chat_id, status['menu'])
+            bot.send_message(chat_id, text_greeting)
+            send_main_menu(chat_id)
+
+        elif user_status == status['info_covid']:
+            switch_info_covid(message_text, chat_id)
+
     else:
-        bot.send_message(chat_id, text.greeting)
-        send_menu(chat_id)
+        try:
+            Chat.get_or_create(id=chat_id)
+        except:
+            pass
+        redis_helper.set(chat_id, status['menu'])
+        bot.send_message(chat_id, text_greeting, reply_markup=markup_remove())
+        send_main_menu(chat_id)
+        
 
-def main_switch(message, latest_user_state):
-    chat_id = message.chat.id
-
-    if (latest_user_state.status == Status.MAIN_MENU):
-        switch_menu(message, latest_user_state)
-    elif (latest_user_state.status == Status.INFO):
-        switch_info(message)
-    elif (latest_user_state.status == Status.SCREENING):
-        switch_screening(message, latest_user_state)
+def switch_main_menu(message_text, chat_id):
+    if message_text == 'a':
+        send_current_covid_data(chat_id)
+    elif message_text == 'b':
+        redis_helper.set(chat_id, status['info_covid'])
+        bot.send_message(chat_id, text_info_questions_menu, reply_markup=markup_info_menu())
     else:
-        send_menu(chat_id)
-
+        send_main_menu(chat_id)
