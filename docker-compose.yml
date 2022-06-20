@@ -5,20 +5,6 @@ services:
         image: redis:6.2.5-alpine
         ports:
             - 6379:6379
-
-    adminer:
-        image: adminer
-        restart: always
-        ports:
-            - 8080:8080
-
-    db:
-        image: mariadb:10.6.2
-        restart: always
-        environment:
-            MARIADB_ROOT_PASSWORD: example
-        ports:
-            - 3306:3306
             
     redis-commander:
         container_name: redis-commander
