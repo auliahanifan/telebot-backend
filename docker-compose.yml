@@ -1,27 +1,5 @@
 version: "3"
 services:
-    telecovbot-1:
-        container_name: telecovbot-1
-        image: local-telecovbot:latest
-        env_file: .env
-        depends_on:
-        - db
-        build: .
-        ports:
-        - 8000:8000
-
-    telecovbot-2:
-        container_name: telecovbot-2
-        image: local-telecovbot-secondary:latest
-        env_file: secondary.env
-        depends_on:
-        - db
-        build: 
-            context: .
-            dockerfile: ./secondary.Dockerfile
-        ports:
-        - 8001:8001
-
     redis:
         container_name: redis
         image: redis:6.2.5-alpine
